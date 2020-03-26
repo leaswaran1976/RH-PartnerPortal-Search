@@ -36,10 +36,17 @@ public class PartnerSearchService {
 	}
 
 	@GET
+	@Path("/specialsearch/{keyword}")
+	public List<Partners> findApexPartnerByName(@PathParam("keyword") String keyword) {
+		return Partners.findSpecialPartners(keyword);
+	}
+
+	@GET
 	@Path("/search")
 	public List<Partners> findPartners(@QueryParam("partnerlevel") String partnerLevel,
 			@QueryParam("partnerpgm") String partnerProgram, @QueryParam("region") String region,
-			@QueryParam("location") String location, @QueryParam("skills") String rhpe, @QueryParam("ive") String ive) {
+			@QueryParam("location") String location, @QueryParam("skills") String rhpe, @QueryParam("ive") String ive,
+			@QueryParam("pgmgrp") String pgmGroup) {
 		logger.debug("Start of performing advanced search");
 		Stream<Partners> partners = Partners.streamAll();
 
@@ -68,6 +75,11 @@ public class PartnerSearchService {
 		if (ive != null && !ive.isBlank()) {
 			partners = partners.filter(p -> p.industry_vertical_expertise.toUpperCase().contains(ive.toUpperCase()));
 		}
+
+		if (pgmGroup != null && !pgmGroup.isBlank()) {
+			partners = partners.filter(p -> p.program_group.toUpperCase().contains(pgmGroup.toUpperCase()));
+		}
+
 		logger.debug("End of performing advanced search");
 		return partners.collect(Collectors.toList());
 	}

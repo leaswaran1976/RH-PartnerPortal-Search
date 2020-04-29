@@ -2,16 +2,13 @@ package com.redhat.partnerportal.rest.json;
 
 import java.util.List;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.SecondaryTable;
 import javax.persistence.Table;
 
 import io.quarkus.hibernate.orm.panache.PanacheEntity;
 
 @Entity
 @Table(name = "partners")
-@SecondaryTable(name = "partner_spotlights")
 public class Partners extends PanacheEntity {
 	public String account_owner;
 	public String website;
@@ -34,15 +31,6 @@ public class Partners extends PanacheEntity {
 	public int partner_center_id;
 	public int account_number;
 	public String program_group;
-
-	@Column(table = "partner_spotlights")
-	public String spotlight_title;
-
-	@Column(table = "partner_spotlights")
-	public String spotlight_link;
-
-	@Column(table = "partner_spotlights")
-	public String spotlight_sa;
 
 	/**
 	 * Empty Constructor as required by Quarkus
@@ -76,8 +64,7 @@ public class Partners extends PanacheEntity {
 	 */
 	public Partners(String ao, String web_site, String bsp, String baddr, String cemail, String phone,
 			String last_activity, String desc, int da, int sa, int pta, String pskills, String ive, String subregion,
-			String psv, String pp, String aname, String fpt, int pcid, int acctnum, String pgmGroup,
-			String spotlight_title, String spotlight_link, String spotlight_sa) {
+			String psv, String pp, String aname, String fpt, int pcid, int acctnum, String pgmGroup) {
 		this.account_owner = ao;
 		this.website = web_site;
 		this.billing_state_province = bsp;
@@ -99,9 +86,6 @@ public class Partners extends PanacheEntity {
 		this.partner_center_id = pcid;
 		this.account_number = acctnum;
 		this.program_group = pgmGroup;
-		this.spotlight_title = spotlight_title;
-		this.spotlight_link = spotlight_link;
-		this.spotlight_sa = spotlight_sa;
 	}
 
 	/**

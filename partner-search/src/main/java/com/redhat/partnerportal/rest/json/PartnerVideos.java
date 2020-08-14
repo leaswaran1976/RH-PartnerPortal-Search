@@ -14,6 +14,10 @@ public class PartnerVideos extends PanacheEntity {
 	public String video_title;
 	public String video_link;
 
+	public PartnerVideos() {
+
+	}
+
 	public PartnerVideos(String title, String link, Long pid) {
 		this.partnerid = pid;
 		this.video_link = link;

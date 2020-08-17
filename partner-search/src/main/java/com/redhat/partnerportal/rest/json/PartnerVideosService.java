@@ -13,8 +13,8 @@ import io.quarkus.panache.common.Sort;
 
 @Path("/partnervideos")
 @ApplicationScoped
-@Consumes("application/json")
 @Produces("application/json")
+@Consumes("application/json")
 public class PartnerVideosService {
 	@GET
 	public List<PartnerVideos> list() {

@@ -16,7 +16,7 @@ import org.jboss.logging.Logger;
 
 import io.quarkus.panache.common.Sort;
 
-@Path("/comboComboEntity")
+@Path("/combopartners")
 @ApplicationScoped
 @Produces("application/json")
 @Consumes("application/json")

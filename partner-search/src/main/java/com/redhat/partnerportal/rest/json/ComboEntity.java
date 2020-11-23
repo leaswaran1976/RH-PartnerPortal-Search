@@ -123,6 +123,16 @@ public class ComboEntity extends PanacheEntity {
 	public static List<ComboEntity> findByName(String name) {
 		return find("account_name", name).list();
 	}
+	
+	/**
+	 * Method to find ComboEntity by Partner Id
+	 * 
+	 * @param name - name of the ComboEntity
+	 * @return
+	 */
+	public static List<ComboEntity> findByPartnerId(Long pid) {
+		return find("id", pid).list();
+	}
 
 	/**
 	 * Method to find special ComboEntity like APEX, GSI etc

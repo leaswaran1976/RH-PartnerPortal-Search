@@ -30,7 +30,13 @@ public class PartnerSearchService {
 	}
 
 	@GET
-	@Path("/search/{name}")
+	@Path("/search/{partnerid}")
+	public Partners findPartnerById(@PathParam("partnerid") Long pid) {
+		return Partners.findById(pid);
+	}
+	
+	@GET
+	@Path("/namesearch/{name}")
 	public List<Partners> findPartnerByName(@PathParam("name") String name) {
 		return Partners.findByName(name);
 	}

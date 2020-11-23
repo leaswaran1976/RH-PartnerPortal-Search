@@ -31,12 +31,12 @@ public class ComboEntityService {
 
 	@GET
 	@Path("/search/{partnerid}")
-	public List<ComboEntity> findPartnerById(@PathParam("partnerid") String pid) {
-		return ComboEntity.findById(pid);
+	public List<ComboEntity> findPartnerById(@PathParam("partnerid") Long pid) {
+		return ComboEntity.findByPartnerId(pid);
 	}
 
 	@GET
-	@Path("/search/{name}")
+	@Path("/namesearch/{name}")
 	public List<ComboEntity> findPartnerByName(@PathParam("name") String name) {
 		return ComboEntity.findByName(name);
 	}

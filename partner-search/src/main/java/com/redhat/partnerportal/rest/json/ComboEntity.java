@@ -43,6 +43,7 @@ public class ComboEntity extends PanacheEntity {
 	public String cred_product;
 	public String video_title;
 	public String video_link;
+	public Long partner_id;
 
 	/**
 	 * Empty Constructor as required by Quarkus
@@ -78,7 +79,8 @@ public class ComboEntity extends PanacheEntity {
 			String last_activity, String desc, int da, int sa, int pta, String pskills, String ive, String subregion,
 			String psv, String pp, String aname, String fpt, int pcid, int acctnum, String pgmGroup,
 			String spotlight_title, String spotlight_link, String spotlight_sa, String sbt, String sbl, String sbi,
-			String sbbc, String crole, String cproduct, String video_title, String video_link, String spotlight_industry) {
+			String sbbc, String crole, String cproduct, String video_title, String video_link,
+			String spotlight_industry, Long pid) {
 		this.account_owner = ao;
 		this.website = web_site;
 		this.billing_state_province = bsp;
@@ -112,6 +114,7 @@ public class ComboEntity extends PanacheEntity {
 		this.video_link = video_title;
 		this.video_title = video_link;
 		this.spotlight_industry = spotlight_industry;
+		this.partner_id = pid;
 	}
 
 	/**
@@ -123,7 +126,7 @@ public class ComboEntity extends PanacheEntity {
 	public static List<ComboEntity> findByName(String name) {
 		return find("account_name", name).list();
 	}
-	
+
 	/**
 	 * Method to find ComboEntity by Partner Id
 	 * 
@@ -131,7 +134,7 @@ public class ComboEntity extends PanacheEntity {
 	 * @return
 	 */
 	public static List<ComboEntity> findByPartnerId(Long pid) {
-		return find("id", pid).list();
+		return find("partner_id", pid).list();
 	}
 
 	/**

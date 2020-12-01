@@ -13,6 +13,7 @@ public class SpotLights extends PanacheEntity {
 	public String spotlight_title;
 	public String spotlight_link;
 	public String spotlight_sa;
+	public String spotlight_industry;
 	public Long partnerid;
 
 	/**
@@ -26,11 +27,12 @@ public class SpotLights extends PanacheEntity {
 	 * @param link
 	 * @param sa
 	 */
-	public SpotLights(String title, String link, String sa, Long pid) {
+	public SpotLights(String title, String link, String sa, Long pid, String industry) {
 		this.spotlight_title = title;
 		this.spotlight_link = link;
 		this.spotlight_sa = sa;
 		this.partnerid = pid;
+		this.spotlight_industry = industry;
 	}
 
 	/**
